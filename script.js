@@ -64,7 +64,7 @@ function mostrarPersonajes(personajes, busqueda) {
                     <div class="character-name">${personaje.name}</div>
                     <div class="character-detail">
                         <span class="status ${statusClass}"></span>
-                        ${personaje.status} - ${personaje.species}
+                        ${personaje.status}
                     </div>
                 </div>
             </div>
@@ -72,9 +72,6 @@ function mostrarPersonajes(personajes, busqueda) {
     }).join('');
 
     resultadosDiv.innerHTML = `
-        <h2>Resultados para: ${busqueda}</h2>
-
-        <!-- ESTE ES TU GRID -->
         <div class="characters-container">
             ${personajesHTML}
         </div>
