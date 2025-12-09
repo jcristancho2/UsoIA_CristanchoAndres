@@ -1,0 +1,111 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    grid-area: header;
+    background: #222;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* NAV LATERAL */
+nav {
+    grid-area: nav;
+    background: #fafafa;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: darkgrey;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+nav h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #f5f5f5;
+}
+
+/* LISTA DE DÍAS */
+#listaDias {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+
+}
+
+#listaDias a {
+    background: #f0f0f0c7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 6px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+
+}
+
+#listaDias a:hover {
+    background: #e7e7e7;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+    transition: 1s;
+    border-radius: 25px;
+}
+
+/* MAIN CON VISOR */
+main {
+    grid-area: main;
+    border-radius: 10px;
+    padding: 5px;
+    overflow: hidden;
+    background: #fff;
+    min-width: 0;
+    min-height: 0;
+}
+
+#iframeVisor {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* FOOTER */
+footer {
+    grid-area: footer;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    height: 10vh;
+}
+
+/* OCULTAR EL ASIDE DUPLICADO */
+aside {
+    display: none;
+}

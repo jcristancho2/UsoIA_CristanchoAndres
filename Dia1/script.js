@@ -78,12 +78,12 @@ function mostrarPersonajes(personajes, busqueda) {
     `;
 }
 
-// Buscar con Enter
+
 document.getElementById('id1').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         buscarPersonajes();
     }
 });
 
-// Buscar con botón
+
 document.querySelector('.contbutton1').addEventListener('click', buscarPersonajes);

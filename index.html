@@ -2,19 +2,32 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1 - Día 1</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard de Códigos Diarios</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-<body> 
-   <h1>Buscador de Personaje Rick & Morty</h1>
-<div class="container1">
-        <input id="id1" type="text" placeholder="Buscar personaje ">
-        <button class="contbutton1" onclick="buscarPersonajes">Buscar</button>
-    </div>   
-   
-    <section class="section1" id="resultados"></section>
+<body>
+<header>
+    <h1>Dashboard de Códigos Diarios</h1>
+    <button id="btnAgregar">Registrar nuevo día</button>
+</header>
 
+<nav>
+    <h2>Días Disponibles</h2>
+    <div id="listaDias"></div>
+</nav>
+
+<aside>
+  <section id="listaDias"></section>
+</aside>
+<main>
+    <section id="visor">
+        <iframe id="iframeVisor" frameborder="0"></iframe>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2025 Especialización IA</p>
+</footer>
+
+<script src="assets/dashboard.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
