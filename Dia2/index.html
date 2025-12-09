@@ -2,24 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>TODO List con MockAPI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
-    <h1>CRUD mockapi.io</h1>
+    <h1>TODO List con MockAPI</h1>
 </header>
-<main>
-    <section id="contenido">
-      <div>
-        <input type="text">
-        <button id="btnAgregar"> + </button>
-      </div>
-    </section>
-    <section id="lista">
-      
+
+<main class="container">
+    <section id="contenido" class="input-area">
+        <input type="text" id="txtNombre" placeholder="Escribe una tarea...">
+        <button id="btnAgregar" class="btn-agregar">Agregar</button>
     </section>
 
+    <section id="lista" class="lista"></section>
 </main>
+
+<script src="script.js"></script>
+
 </body>
 </html>

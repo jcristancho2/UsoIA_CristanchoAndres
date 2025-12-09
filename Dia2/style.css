@@ -1,0 +1,183 @@
+/* -------------------
+   ESTILO GENERAL
+---------------------- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f6fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* -------------------
+   ENCABEZADO
+---------------------- */
+
+header {
+    width: 100%;
+    background: #4b7bec;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* -------------------
+   CONTENEDOR PRINCIPAL
+---------------------- */
+
+.container {
+    width: 95%;
+    max-width: 600px;
+    margin-top: 30px;
+}
+
+/* -------------------
+   ÁREA DE INPUT
+---------------------- */
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#txtNombre {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+#txtNombre:focus {
+    outline: none;
+    border-color: #4b7bec;
+    box-shadow: 0 0 5px rgba(75,123,236,0.3);
+}
+
+.btn-agregar {
+    padding: 12px 20px;
+    background: #20bf6b;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-agregar:hover {
+    background: #1eae63;
+}
+
+/* -------------------
+   LISTA DE ELEMENTOS
+---------------------- */
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background: #fff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: 0.2s;
+}
+
+/* Efecto cuando está en edición */
+.item.editando {
+    border-color: #4b7bec;
+    background: #eef3ff;
+    box-shadow: 0 0 8px rgba(75,123,236,0.3);
+}
+
+.item input {
+    flex: 1;
+    margin-right: 15px;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.item input:focus {
+    border-color: #4b7bec;
+    outline: none;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.item button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btnHabilitar {
+    background: #4b7bec;
+    color: white;
+}
+.btnHabilitar:disabled {
+    background: #9bb6f3;
+    cursor: not-allowed;
+}
+
+.btnGuardar {
+    background: #3867d6;
+    color: white;
+}
+.btnGuardar:disabled {
+    background: #a6b5db;
+    cursor: not-allowed;
+}
+
+.btnEliminar {
+    background: #eb3b5a;
+    color: white;
+}
+.btnEliminar:hover {
+    background: #d32f45;
+}
+
+/* -------------------
+   RESPONSIVE
+---------------------- */
+
+@media (max-width: 480px) {
+    .input-area {
+        flex-direction: column;
+    }
+
+    .btn-agregar {
+        width: 100%;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .item input {
+        width: 100%;
+    }
+}
