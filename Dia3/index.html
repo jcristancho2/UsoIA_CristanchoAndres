@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendGear - Sistema de Gestión de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrendGear</h1>
+            <p>Sistema de Gestión de Clientes</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
+            <button class="btn btn-primary" onclick="openModal()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg> Nuevo Cliente</button>
+        </div>
+
+        <div class="table-container">
+            <div id="loadingIndicator" class="loading">Cargando datos de la API</div>
+            <div id="errorMessage" class="error" style="display: none;"></div>
+            <table id="customersTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Producto</th>
+                        <th>Categoría</th>
+                        <th>Monto</th>
+                        <th>Membresía</th>
+                        <th>Satisfacción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+            <div id="noData" class="no-data" style="display: none;">
+                No se encontraron clientes
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="customerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nuevo Cliente</h2>
+                <button class="close-modal" onclick="closeModal()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6c757d"><path d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z"/></svg></button>
+            </div>
+            <form id="customerForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Nombre *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPurchased">Producto *</label>
+                        <input type="text" id="productPurchased" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Categoría *</label>
+                        <select id="category" required>
+                            <option value="Seleccionar">Seleccionar...</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Audio">Audio</option>
+                            <option value="Wearables">Wearables</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Storage">Storage</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="amountSpent">Monto (COP) *</label>
+                        <input type="number" id="amountSpent" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Edad *</label>
+                        <input type="number" id="age" min="18" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Género</label>
+                        <select id="gender">
+                            <option value="Seleccionar">Seleccionar...</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Ciudad</label>
+                        <input type="text" id="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">Estado</label>
+                        <input type="text" id="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Método de Pago</label>
+                        <select id="paymentMethod">
+                          <option value="Seleccionar">Selecconar...</option>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Apple Pay">Apple Pay</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="membershipStatus">Membresía</label>
+                        <select id="membershipStatus">
+                            <option value="Seleccionar">Seleccionar...</option>
+                            <option value="Bronze">Bronze</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Platinum">Platinum</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredShippingMethod">Envío Preferido</label>
+                        <select id="preferredShippingMethod">
+                            <option value="Standard">Standard</option>
+                            <option value="Express">Express</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerSatisfactionScore">Satisfacción (1-5)</label>
+                        <input type="number" id="customerSatisfactionScore" min="1" max="5" step="0.1" value="">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" onclick="closeModal()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m376-320 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0 0v-480 480Z"/></svg>
+                    </button>
+                    <button type="submit" class="btn btn-success" id="saveBtn"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520q-33 0-56.5-23.5T440-240v-206l-64 62-56-56 160-160 160 160-56 56-64-62v206h220q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h100v80H260Zm220-280Z"/></svg> Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
