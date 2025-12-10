@@ -1,6 +1,7 @@
 let dias = [
     "Dia1",
-    "Dia2"
+    "Dia2",
+    "Dia3"
 ];
 
 function renderizarDias() {
